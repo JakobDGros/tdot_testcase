@@ -1,0 +1,11 @@
+<launch>
+	
+	<param name="robot_description"
+		command="$(find xacro)/xacro $(find tdot_testcase)/urdf/amr_arm_robot.xacro --inorder " />
+
+
+	<include file="$(find herox_base)/launch/base.launch"/>
+	<include file="$(find herox_navigation)/launch/amcl_demo.launch"/>
+	<include file="$(find robco_hw)/launch/robot_interface.launch"/>
+
+</launch>

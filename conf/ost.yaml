@@ -1,0 +1,26 @@
+image_width: 640
+image_height: 480
+camera_name: effector_camera
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [ 661.4986 ,    0.     ,  343.87748,
+            0.     ,  662.0191 ,  210.89613,
+            0.     ,    0.     ,    1.     ]
+camera_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.065663, -0.038050, 0.000803, 0.008479, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [ 1.,  0.,  0.,
+          0.,  1.,  0.,
+          0.,  0.,  1.]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [ 673.56042,    0.     ,  348.06346,    0.     ,
+            0.     ,  678.31299,  211.46737,    0.     ,
+            0.     ,    0.     ,    1.     ,    0.     ]

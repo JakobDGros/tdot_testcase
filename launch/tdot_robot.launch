@@ -1,22 +1,20 @@
 <launch>
   <!-- Combined URDF for HEROX AMR + robotic arm -->
 	<param name="robot_description"
-		command="$(find xacro)/xacro $(find tdot_testcase)/urdf/amr_arm_robot.xacro --inorder " />
-
-  <!-- Robot state publisher publishes transformations between links/joints -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+		command="$(find xacro)/xacro $(find tdot_testcase)/urdf/amr_arm_robot.xacro" />
 
   <!-- HEROX motor controllers, laser scanners, etc. -->
-	<include file="$(find herox_base)/launch/base.launch">
-    <arg name="publish_urdf" value="false" />
-  </include>
-
-  <!-- HEROX navigation stack (localization & path planning) -->
-	<include file="$(find herox_navigation)/launch/amcl_demo.launch"/>
+  <include file="$(find herox_base)/launch/base.launch"/>
 
   <!-- Robco robotic arm hardware interface (HW interface, JointTrajectoryController -->
 	<include file="$(find robco_hw)/launch/robot_interface.launch" >
     <arg name="start_robot_state_publisher" value="false" />
     <arg name="start_delay" value="5.0" />
   </include>
+
+  <!-- Robot state publisher publishes transformations between links/joints -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+
+  <!-- HEROX navigation stack (localization & path planning) -->
+	<!--<include file="$(find herox_navigation)/launch/amcl_demo.launch"/>-->
 </launch>

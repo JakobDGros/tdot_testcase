@@ -1,0 +1,11 @@
+<launch>
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node">
+    <param name="camera_info_url" value="package://tdot_testcase/conf/ost.yaml"/>
+    <param name="camera_name" value="effector_camera"/>
+    <param name="camera_frame_id" value="effector_camera"/>
+    <param name="color_format" value="yuv420p"/>
+    <param name="pixel_format" value="yuyv"/>
+  </node>
+  <node name="image_proc" pkg="image_proc" type="image_proc" ns="usb_cam"/>
+  <include file="$(find tdot_testcase)/launch/continuous_detection.launch"/>
+</launch>
